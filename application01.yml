@@ -1,0 +1,3 @@
+apiVersion: applications.argoproj.io
+kind: Application
+metadata:
