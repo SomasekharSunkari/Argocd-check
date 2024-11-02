@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: bar-app
+  name: foo-app
   namespace: argocd
   finalizers:
     # The default behaviour is foreground cascading deletion
