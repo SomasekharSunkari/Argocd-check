@@ -16,3 +16,8 @@ spec:
       prune: true
       selfHeal: true
       allowEmpty: true
+    syncOptions:
+      - Validate=true
+      - Createnamespace=false
+      - PrunePropagationPolicy=foreground
+      - PruneLast=true
