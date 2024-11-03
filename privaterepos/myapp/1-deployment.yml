@@ -20,3 +20,5 @@ spec:
           image: sunkarisomasekhar/voting_app:vote
           ports:
             - containerPort: 80
+      imagePullSecrets:
+        - name: dockercred
