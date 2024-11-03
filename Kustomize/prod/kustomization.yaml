@@ -1,0 +1,14 @@
+resources:
+  - ../../myapp
+images:
+  - name: nginx
+    newName: nginx
+    newTag: 1.26.2
+replicas:
+  - name: nginx-deployment
+    count: 4
+namePrefix: prod-
+
+patchesStrategicMerge:
+  - patch.yaml
+namespace: prod-argo

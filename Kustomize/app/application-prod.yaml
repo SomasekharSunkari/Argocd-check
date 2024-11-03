@@ -1,0 +1,22 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: prod-deploy
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/SomasekharSunkari/Argocd-check.git
+    targetRevision: HEAD
+    path: Kustomize/prod
+  destination:
+    server: https://kubernetes.default.svc
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+      allowEmpty: true
+    syncOptions:
+      - Validate=true
+      - Createnamespace=true
+      - PrunePropagationPolicy=foreground
+      - PruneLast=true

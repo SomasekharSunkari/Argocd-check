@@ -1,0 +1,11 @@
+resources:
+  - ../../myapp
+images:
+  - name: nginx
+    newName: nginx
+    newTag: 1.27.2
+replicas:
+  - name: nginx-deployment
+    count: 2
+namePrefix: dev-
+namespace: dev-argo
