@@ -1,0 +1,31 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: metrics-server
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://kubernetes-sigs.github.io/metrics-server/
+    targetRevision: 3.12.2
+    chart: metrics-server
+    helm:
+      parameters:
+        - name: service.type
+          value: NodePort
+        - name: resources.limits.cpu
+          value: "100m"
+        - name: resources.limits.memory
+          value: "256Mi"
+        - name: resources.requests.cpu
+          value: "50m"
+        - name: resources.requests.memory
+          value: "128Mi"
+
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: kube-system
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
