@@ -9,6 +9,6 @@ replicas:
     count: 4
 namePrefix: prod-
 
-patchesStrategicMerge:
-  - patch.yaml
+# patchesStrategicMerge:
+#   - patch.yaml
 namespace: prod-argo
